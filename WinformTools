@@ -1,0 +1,27 @@
+
+//WINFORMS Code will loop through a combobox list and return the position of the item
+
+public int GetValueComboBoxList(string text, ComboBox cmbCd)
+{
+    int i = -1; //value of the item in the dropdown
+    int c = 0; //value of the item that needs to go into the table
+
+    //Create a DataTable from the list
+    DataTable dtx = (DataTable)cmbCd.DataSource;
+
+    if (dtx != null) //Check to see if there are values in DataTable
+    {
+        do //Keep looping through until you find the right line
+        {
+            c++;
+            i++;
+
+        } while (dtx.Rows[i][0].ToString() != text);
+
+        return c; //get the value of the item on the list and returns it
+    }
+    else //Returns this value - not in range of a list
+
+        return -1;
+
+}
